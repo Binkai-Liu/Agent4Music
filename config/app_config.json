@@ -1,0 +1,15 @@
+{
+  "app_name": "Agent4Music",
+  "max_agent_rounds": 20,
+  "min_interval_ms": 1000,
+  "db_path": "data/music_db.db",
+  "cache_dir": "data/cache",
+  "export_dir": "data/export",
+  "compliance": {
+    "block_audio_download": true,
+    "blocked_extensions": [".mp3", ".flac", ".wav", ".aac", ".m4a", ".ogg"],
+    "blocked_path_patterns": ["/vip/", "/pay/", "/download/audio"]
+  },
+  "proxy_enabled": false,
+  "log_level": "INFO"
+}

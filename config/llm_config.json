@@ -1,0 +1,25 @@
+{
+  "provider": "openai",
+  "model": "gpt-4o-mini",
+  "api_key_env": "OPENAI_API_KEY",
+  "base_url": null,
+  "temperature": 0.3,
+  "max_tokens": 4096,
+  "providers": {
+    "openai": {
+      "api_key_env": "OPENAI_API_KEY",
+      "base_url": null
+    },
+    "anthropic": {
+      "api_key_env": "ANTHROPIC_API_KEY"
+    },
+    "qwen": {
+      "api_key_env": "DASHSCOPE_API_KEY",
+      "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1"
+    },
+    "ollama": {
+      "base_url": "http://localhost:11434/v1",
+      "model": "qwen2.5:7b"
+    }
+  }
+}

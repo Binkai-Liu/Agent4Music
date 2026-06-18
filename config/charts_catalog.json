@@ -1,0 +1,22 @@
+{
+  "qq": {
+    "site_name": "QQ音乐",
+    "charts": [
+      {"id": "hot", "name": "热歌榜", "topid": 26, "description": "最热门歌曲"},
+      {"id": "new", "name": "新歌榜", "topid": 27, "description": "最新发布歌曲"},
+      {"id": "surge", "name": "飙升榜", "topid": 62, "description": "快速上升歌曲"},
+      {"id": "original", "name": "原创榜", "topid": 28, "description": "原创音乐"},
+      {"id": "pop", "name": "流行指数", "topid": 4, "description": "流行音乐指数"}
+    ]
+  },
+  "netease": {
+    "site_name": "网易云音乐",
+    "charts": [
+      {"id": "hot", "name": "热歌榜", "playlist_id": "3778678", "description": "最热门歌曲"},
+      {"id": "new", "name": "新歌榜", "playlist_id": "3779629", "description": "最新发布歌曲"},
+      {"id": "surge", "name": "飙升榜", "playlist_id": "19723756", "description": "快速上升歌曲"},
+      {"id": "original", "name": "原创榜", "playlist_id": "2884035", "description": "原创音乐"},
+      {"id": "electronic", "name": "电音榜", "playlist_id": "1978921795", "description": "电子音乐"}
+    ]
+  }
+}

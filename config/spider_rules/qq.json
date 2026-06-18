@@ -1,0 +1,51 @@
+{
+  "site_id": "qq",
+  "site_name": "QQ音乐",
+  "base_url": "https://y.qq.com",
+  "rate_limit_ms": 1500,
+  "endpoints": {
+    "hot_chart": {
+      "url": "https://c.y.qq.com/v8/fcg-bin/fcg_v8_toplist_cp.fcg",
+      "params": {
+        "tpl": 3,
+        "page": "detail",
+        "type": "top",
+        "topid": 26,
+        "format": "json"
+      },
+      "method": "GET"
+    },
+    "playlist_detail": {
+      "url": "https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg",
+      "params": {
+        "type": 1,
+        "json": 1,
+        "utf8": 1,
+        "onlysong": 0,
+        "new_format": 1
+      },
+      "method": "GET"
+    },
+    "artist_info": {
+      "url": "https://c.y.qq.com/splcloud/fcgi-bin/fcg_get_singer_desc.fcg",
+      "params": {
+        "utf8": 1,
+        "format": "json"
+      },
+      "method": "GET"
+    }
+  },
+  "field_mapping": {
+    "track_id": "songmid",
+    "title": "songname",
+    "artist": "singer.0.name",
+    "album": "albumname",
+    "duration_ms": "interval",
+    "play_count": "play_count",
+    "cover_url": "albummid"
+  },
+  "fallback": {
+    "use_browser": false,
+    "retry_count": 3
+  }
+}

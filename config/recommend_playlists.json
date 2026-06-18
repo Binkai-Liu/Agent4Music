@@ -1,0 +1,99 @@
+{
+  "playlists": [
+    {
+      "id": "rec_pop_qq",
+      "name": "流行精选 · 治愈系",
+      "source": "qq",
+      "playlist_id": "7711340648",
+      "genres": ["流行"],
+      "scenes": ["治愈", "睡前"],
+      "tags": ["情歌", "温暖"],
+      "cover_color": "#1e6fff"
+    },
+    {
+      "id": "rec_rock_netease",
+      "name": "摇滚力量 · 热血燃向",
+      "source": "netease",
+      "playlist_id": "536235795",
+      "genres": ["摇滚"],
+      "scenes": ["热血", "运动"],
+      "tags": ["燃", "经典"],
+      "cover_color": "#ef4444"
+    },
+    {
+      "id": "rec_gufeng_netease",
+      "name": "古风雅韵 · 国风精选",
+      "source": "netease",
+      "playlist_id": "2829883282",
+      "genres": ["古风"],
+      "scenes": ["怀旧"],
+      "tags": ["中国风", "江湖"],
+      "cover_color": "#7c3aed"
+    },
+    {
+      "id": "rec_edm_qq",
+      "name": "电音派对 · 节奏控",
+      "source": "qq",
+      "playlist_id": "8408300705",
+      "genres": ["电子"],
+      "scenes": ["运动", "热血"],
+      "tags": ["edm", "节奏"],
+      "cover_color": "#06b6d4"
+    },
+    {
+      "id": "rec_folk_netease",
+      "name": "民谣慢生活",
+      "source": "netease",
+      "playlist_id": "5059633707",
+      "genres": ["民谣"],
+      "scenes": ["治愈", "怀旧"],
+      "tags": ["吉他", "安静"],
+      "cover_color": "#22c55e"
+    },
+    {
+      "id": "rec_rap_qq",
+      "name": "说唱新势力",
+      "source": "qq",
+      "playlist_id": "7336220609",
+      "genres": ["说唱"],
+      "scenes": ["热血"],
+      "tags": ["hip-hop", "rap"],
+      "cover_color": "#f97316"
+    },
+    {
+      "id": "rec_instrumental",
+      "name": "纯音乐 · 专注学习",
+      "source": "netease",
+      "playlist_id": "2829816518",
+      "genres": ["纯音乐"],
+      "scenes": ["睡前", "治愈"],
+      "tags": ["钢琴", "轻音乐"],
+      "cover_color": "#64748b"
+    },
+    {
+      "id": "rec_rnb_netease",
+      "name": "R&B 律动精选",
+      "source": "netease",
+      "playlist_id": "2829883282",
+      "genres": ["R&B"],
+      "scenes": ["治愈"],
+      "tags": ["节奏布鲁斯"],
+      "cover_color": "#ec4899"
+    }
+  ],
+  "preference_tags": [
+    {"id": "流行", "type": "genre", "color": "#1e6fff"},
+    {"id": "摇滚", "type": "genre", "color": "#ef4444"},
+    {"id": "古风", "type": "genre", "color": "#7c3aed"},
+    {"id": "电子", "type": "genre", "color": "#06b6d4"},
+    {"id": "说唱", "type": "genre", "color": "#f97316"},
+    {"id": "民谣", "type": "genre", "color": "#22c55e"},
+    {"id": "纯音乐", "type": "genre", "color": "#64748b"},
+    {"id": "R&B", "type": "genre", "color": "#ec4899"},
+    {"id": "治愈", "type": "scene", "color": "#34d399"},
+    {"id": "热血", "type": "scene", "color": "#f87171"},
+    {"id": "怀旧", "type": "scene", "color": "#fbbf24"},
+    {"id": "睡前", "type": "scene", "color": "#818cf8"},
+    {"id": "运动", "type": "scene", "color": "#2dd4bf"}
+  ]
+}
