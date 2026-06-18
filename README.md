@@ -1,69 +1,78 @@
 <div align="center">
 
-```text
-    ___                    __  __ __  ___                     
-   /   |  ____ ____  ____ / /_/ // / /   |  __  __ ____ (_)____
-  / /| | / __ `/ _ \/ __ \ __/ // /_/ /| | / / / // __`/ // __/
- / ___ |/ /_/ /  __/ / / / /_/__  __/ /| |/ /_/ /\_, // // /__
-/_/  |_|\__, /\___/_/ /_/\__/  /_/ /_/ |_|/____//___//_/ \___/ 
-       /____/                                                   
-```
+![Agent4Music](./assets/Agent4Music.jpeg)
 
 **Agent4Music** — Intelligent Music Data Agent
 
 An Agent System for Crawling, Analyzing & Visualizing Open Data of Modern Music Websites
 
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
-[![Vue](https://img.shields.io/badge/Vue-3.x-green.svg)](https://vuejs.org)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+**English** | [简体中文](docs/zh-CN/README.md)
 
 </div>
 
 ---
 
-## ⚠️ 合规声明（必读）
+## Table of Contents
 
-本项目**仅抓取各音乐平台公开、非版权、可访问的元数据**（公开榜单、热门歌单、公开艺人简介、歌词文本等）。
-
-- **不**破解付费内容
-- **不**爬取版权音频文件
-- **不**恶意高频爬取
-- 默认请求间隔 ≥ 1 秒，内置 URL 合规黑名单
-
-请遵守目标站点服务条款与当地法律法规，仅供学习研究使用。
+- [Compliance Notice](#-compliance-notice-required-reading)
+- [Highlights](#highlights)
+- [Tech Stack](#tech-stack)
+- [Quick Start](#quick-start)
+- [Example Scripts](#example-scripts)
+- [Supported Sites](#supported-sites)
+- [Project Structure](#project-structure)
+- [Adding a New Site](#adding-a-new-site)
+- [Adding a New Skill](#adding-a-new-skill)
+- [License](#license)
 
 ---
 
-## 核心亮点
+## ⚠️ Compliance Notice (Required Reading)
 
-- **分层 Agent 架构**：LLM 决策 + 宿主执行 + 工具集 + Skill 按需加载
-- **最新榜单**：QQ / 网易云 热歌、新歌、飙升、原创等多榜单一键实时拉取
-- **喜好推荐**：拖拽曲风/场景标签与歌曲，智能匹配推荐歌单
-- **多站点适配**：QQ 音乐、网易云音乐公开数据（配置化扩展）
-- **Skills 系统**：数据清洗、歌词解析、曲风标签分类
-- **子 Agent 并行**：多站点独立上下文并行采集
-- **全功能 WebUI**：任务配置、实时监控、数据浏览、图表大屏、导出
+This project **only collects publicly accessible, non-copyright metadata** from music platforms (public charts, popular playlists, public artist profiles, lyric text, etc.).
 
-## 技术栈
+- Does **not** bypass paid or DRM-protected content
+- Does **not** download copyrighted audio files
+- Does **not** perform aggressive high-frequency crawling
+- Default request interval ≥ 1 second, with a built-in URL compliance blocklist
 
-| 层 | 技术 |
+Please comply with each platform's Terms of Service and applicable laws. For learning and research purposes only.
+
+---
+
+## Highlights
+
+- **Layered Agent architecture**: LLM decision-making + host execution + native tools + on-demand Skills
+- **Latest charts**: One-click real-time fetch for QQ Music / NetEase charts (hot, new, rising, original, and more)
+- **Preference-based recommendations**: Drag mood/scene tags and songs to match recommended playlists
+- **Multi-site adapters**: QQ Music and NetEase Cloud Music public data (config-driven extension)
+- **Skills system**: Data cleaning, lyric parsing, genre/tag classification
+- **Sub-agent parallelism**: Independent per-site contexts for parallel collection
+- **Full WebUI**: Task setup, live monitoring, data browsing, chart dashboard, export
+
+## Tech Stack
+
+| Layer | Technology |
 |---|---|
-| 后端 | Python 3.10+, FastAPI, asyncio, SQLite |
-| Agent | 自研四步握手 + 多模型 LLM Client |
-| 爬虫 | httpx, Playwright |
-| 前端 | Vue3, Vite, Element Plus, ECharts, TailwindCSS |
-| 部署 | Docker, uvicorn |
+| Backend | Python 3.10+, FastAPI, asyncio, SQLite |
+| Agent | Custom 4-step handshake + multi-model LLM client |
+| Crawler | httpx, Playwright |
+| Frontend | Vue3, Vite, Element Plus, ECharts, TailwindCSS |
+| Deployment | Docker, uvicorn |
 
-## 快速开始
+## Quick Start
 
-### 1. 克隆仓库
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/Agent4Music.git
 cd Agent4Music
 ```
 
-### 2. 安装依赖
+### 2. Install dependencies
 
 ```bash
 python3 -m venv venv
@@ -71,34 +80,36 @@ source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. 配置 LLM（可选）
+### 3. Configure LLM (optional)
 
 ```bash
 export OPENAI_API_KEY=your_key
-# 或本地 Ollama：修改 config/llm_config.json provider 为 ollama
+# Or use local Ollama: set provider to "ollama" in config/llm_config.json
 ```
 
-### 4. 一键启动
+### 4. One-click start
 
 ```bash
 chmod +x start.sh
 ./start.sh
 ```
 
-启动时将显示 ASCII Banner，并输出：
+On startup you will see the ASCII banner and these endpoints:
 
-| 入口 | 地址 |
-|------|------|
+| Entry | URL |
+|------|-----|
 | **WebUI** | http://127.0.0.1:8120/ |
-| **API 文档** | http://127.0.0.1:8120/docs |
+| **API Docs** | http://127.0.0.1:8120/docs |
 
-### 5. WebUI 开发模式
+> **Note:** The WebUI requires a built frontend. If `webui/dist/` is missing, run `cd webui && npm install && npm run build` first, or let `start.sh` build it when Node.js is available.
+
+### 5. WebUI development mode
 
 ```bash
-# 终端 1
+# Terminal 1
 uvicorn api.main_api:app --host 0.0.0.0 --port 8120
 
-# 终端 2
+# Terminal 2
 cd webui && npm install && npm run dev
 # http://127.0.0.1:5173
 ```
@@ -109,7 +120,7 @@ cd webui && npm install && npm run dev
 docker compose up -d
 ```
 
-## 示例脚本
+## Example Scripts
 
 ```bash
 python examples/skill_demo.py
@@ -118,40 +129,41 @@ python examples/single_site_demo.py netease
 python examples/batch_task_demo.py
 ```
 
-## 已支持站点
+## Supported Sites
 
-| 站点 | ID | 支持类型 |
-|------|-----|---------|
-| QQ音乐 | `qq` | 热榜、歌单、歌手 |
-| 网易云音乐 | `netease` | 热榜、歌单、歌手 |
+| Site | ID | Supported types |
+|------|-----|-----------------|
+| QQ Music | `qq` | Charts, playlists, artists |
+| NetEase Cloud Music | `netease` | Charts, playlists, artists |
 
-## 项目结构
+## Project Structure
 
 ```
 Agent4Music/
-├── assets/banner.txt    # ASCII 启动 Banner
+├── assets/              # Banner image & ASCII art
+├── docs/zh-CN/          # Chinese README
 ├── scripts/             # show_banner.sh
-├── core/                # Agent 核心
-├── tools/               # 原生工具集
-├── skills/              # 按需加载技能
-├── services/            # 站点适配 + 数据库
-├── api/                 # FastAPI 接口
-├── webui/               # Vue3 前端
-├── config/              # 全局配置
-└── examples/            # 入门示例
+├── core/                # Agent core
+├── tools/               # Native toolset
+├── skills/              # On-demand skills
+├── services/            # Site adapters + database
+├── api/                 # FastAPI endpoints
+├── webui/               # Vue3 frontend
+├── config/              # Global configuration
+└── examples/            # Getting-started examples
 ```
 
-## 如何新增站点
+## Adding a New Site
 
-1. 添加 `config/spider_rules/{site}.json`
-2. 实现 `services/site_{site}.py` 继承 `BaseSiteAdapter`
-3. 在 `services/factory.py` 注册
+1. Add `config/spider_rules/{site}.json`
+2. Implement `services/site_{site}.py` extending `BaseSiteAdapter`
+3. Register the adapter in `services/factory.py`
 
-## 如何新增 Skill
+## Adding a New Skill
 
-1. 创建 `skills/{name}/SKILL.md`
-2. 在 `skills/executor.py` 添加处理逻辑
+1. Create `skills/{name}/SKILL.md`
+2. Add handler logic in `skills/executor.py`
 
 ## License
 
-MIT — 详见 [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE)
